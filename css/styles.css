@@ -1414,19 +1414,17 @@ body.hero-plates-only .hero-semantic {
   margin-top: auto;
 }
 
-@media (min-width: 901px) {
-  .step-card:not(:last-child)::after {
-    content: "→";
-    position: absolute;
-    right: -1.05rem;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--terracotta-wash);
-    z-index: 3;
-    pointer-events: none;
-  }
+.step-card:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  right: -1.05rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--terracotta-wash);
+  z-index: 3;
+  pointer-events: none;
 }
 
 .heroes-grid {
@@ -1761,7 +1759,8 @@ body.mode-archive .context-strip {
   max-width: 68ch;
 }
 
-.about-section__title {
+.about-section__title,
+.about-heading {
   margin: 0 0 0.55rem;
   font-family: var(--font-display);
   font-size: 1.45rem;
@@ -1787,46 +1786,87 @@ code {
   background: rgba(34, 24, 16, 0.04);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
+  .site-shell,
+  .about-shell {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .hero-grid {
+    gap: 1.75rem;
+  }
+
+  .heroes-grid {
+    gap: 1.15rem;
+  }
+
+  .metrics-grid {
+    gap: 0.85rem;
+  }
+}
+
+@media (max-width: 998px) {
+  .hero-grid,
+  .medallion-grid,
+  .steps-grid,
+  .lab-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .heroes-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .step-card:not(:last-child)::after {
+    display: none;
+  }
+
+  .hero-card {
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .hero-dock {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-lab {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
   .comp-frame {
     padding: 0.85rem 1rem 1.15rem;
   }
 
   .site-shell,
-  .about-page .about-shell {
+  .about-shell {
     padding-left: 1rem;
     padding-right: 1rem;
   }
 
-  .site-header__bar,
   .header-bar {
     flex-direction: column;
     align-items: stretch;
+    gap: 0.75rem;
   }
 
-  .site-header__tools,
   .header-tools {
     margin-left: 0;
     justify-content: space-between;
   }
 
-  .hero-nav {
-    justify-content: flex-start;
-  }
-
-  .intro-steps,
-  .intro-heroes,
-  .hero-grid,
-  .medallion-grid,
-  .steps-grid,
-  .heroes-grid,
-  .context-strip {
+  .heroes-grid {
     grid-template-columns: 1fr;
   }
 
   .metrics-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
+    gap: 0.85rem;
   }
 
   .metric-card:nth-child(2)::after,
@@ -1835,7 +1875,11 @@ code {
   }
 
   .brand-mark {
-    font-size: clamp(1.45rem, 6.5vw, 1.85rem);
+    font-size: 1.6rem;
+  }
+
+  .hero-title {
+    font-size: 1.85rem;
   }
 
   .dig-stage {
@@ -1846,41 +1890,120 @@ code {
 
   .dig-cue {
     font-size: 0.85rem;
-    white-space: normal;
     max-width: 92%;
   }
 
-  .hero-dock {
+  .sector-picker {
     flex-direction: column;
-    align-items: stretch;
-  }
-
-  .hero-dock__progress {
-    width: 100%;
-  }
-
-  .btn-lab {
-    width: 100%;
-  }
-
-  .lab-layout {
-    grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 580px) {
+@media (max-width: 480px) {
+  .site-shell,
+  .comp-frame,
+  .about-shell {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
   .metrics-grid {
     grid-template-columns: 1fr;
   }
+
   .metric-card::after,
   .metric-item::after {
-    display: none !important;
+    display: none;
   }
+
   .hero-title {
-    font-size: 1.75rem;
+    font-size: 1.65rem;
   }
+
+  .hero-pills {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-links {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
   .medallion-box {
-    padding: 1.15rem 1rem;
+    padding: 1rem 0.85rem;
+  }
+
+  .spec-table td {
+    display: block;
+    width: 100%;
+    padding: 0.35rem 0;
+  }
+
+  .spec-table tr {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .brand-mark {
+    font-size: 1.35rem;
+  }
+
+  .hero-title {
+    font-size: 1.45rem;
+  }
+
+  .nav-link {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.35rem;
+  }
+
+  .card-docket {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+
+  .hero-pill {
+    font-size: 0.75rem;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 320px) {
+  .site-shell,
+  .comp-frame,
+  .about-shell {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .hero-title {
+    font-size: 1.3rem;
+  }
+
+  .panel-title,
+  .section-title {
+    font-size: 1.25rem;
+  }
+
+  .spec-table {
+    font-size: 0.8rem;
+  }
+
+  .btn {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.82rem;
   }
 }
 

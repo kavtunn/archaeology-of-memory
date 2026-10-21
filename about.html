@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>О проекте — Археология Памяти</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="about-page" data-title-key="titleAbout">
+    <div class="about-shell">
+      <header class="site-header">
+        <div class="header-bar">
+          <a class="home-link" href="index.html" data-i18n="home">Главная</a>
+          <div class="header-tools">
+            <nav class="hero-nav" data-i18n-aria="navAria" aria-label="Разделы">
+              <a class="nav-link" href="index.html" data-i18n="navIntro">Введение</a>
+              <a class="nav-link" href="lab.html" data-i18n="navDig">Раскопки</a>
+              <a class="nav-link" href="about.html" aria-current="page" data-i18n="navAbout">О проекте</a>
+            </nav>
+            <div class="header-lang"></div>
+          </div>
+        </div>
+        <div class="header-brand">
+          <h1 class="brand-mark about-title" data-i18n="aboutTitle">О проекте</h1>
+        </div>
+      </header>
+
+      <hr class="hairline about-rule" />
+
+      <div class="about-block">
+        <article class="about-prose">
+          <p data-i18n="aboutP1">
+            «Археология Памяти» — интерактивный цифровой проект о памяти героев Великой
+            Отечественной войны. Посетитель сам расчищает землю над смертным медальоном,
+            проявляет бланк в лаборатории и восстанавливает судьбу реального человека —
+            с досье, фотографиями и именным «Свидетельством Памяти».
+          </p>
+          <p data-i18n="aboutP2">
+            Сценарий построен как три этапа: раскоп → лаборатория → архив. В проекте три
+            реальных судьбы — С. Ф. Кутепов, М. Б. Осипова, П. М. Гаврилов.
+          </p>
+        </article>
+
+        <section class="about-section">
+          <h2 class="about-heading" data-i18n="authorTitle">Автор</h2>
+          <p>Александр Кавтунов</p>
+          <p>
+            <a href="mailto:sashakavtunov@gmail.com">sashakavtunov@gmail.com</a>
+          </p>
+          <p>
+            <a href="tel:+375336211069">+375336211069</a>
+          </p>
+        </section>
+
+        <section class="about-section">
+          <h2 class="about-heading" data-i18n="stackTitle">Стек</h2>
+          <ul class="stack-list">
+            <li data-i18n="stack1">HTML5, CSS3, JavaScript — без фреймворков и бандлеров.</li>
+            <li data-i18n="stack2">Данные кейсов — в js/data.js.</li>
+            <li data-i18n="stack3">Статический деплой: любой HTTP-сервер или статичный хостинг.</li>
+          </ul>
+        </section>
+
+        <section class="about-section">
+          <h2 class="about-heading" data-i18n="archTitle">Архитектура</h2>
+          <ul class="stack-list">
+            <li data-i18n="arch1">
+              Страницы: index.html (введение), lab.html (раскопки), about.html (о проекте).
+            </li>
+            <li data-i18n="arch2">
+              Общая логика — js/app.js; модули этапов — excavation.js, lab.js, certificate.js.
+            </li>
+            <li data-i18n="arch3">
+              Контент кейсов загружается из data.js и собирается в DOM на клиенте.
+            </li>
+            <li data-i18n="arch4">Стили — единый файл css/styles.css.</li>
+          </ul>
+        </section>
+      </div>
+
+      <hr class="hairline about-rule" />
+
+      <footer class="footer">
+        <p>
+          <a href="index.html" data-i18n="toIntro">К введению</a> ·
+          <a href="lab.html" data-i18n="toDig">К раскопкам</a>
+        </p>
+      </footer>
+    </div>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/about.js"></script>
+  </body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Раскопки — Археология Памяти</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body data-title-key="titleLab">
+    <div class="comp-frame" id="hero-frame">
+      <header class="site-header">
+        <div class="site-header__bar">
+          <a class="home-link" href="index.html" data-i18n="home">Главная</a>
+          <div class="site-header__tools">
+            <nav class="hero-nav" data-i18n-aria="navAria" aria-label="Разделы">
+              <a class="nav-link hero-semantic" href="index.html" data-i18n="navIntro">Введение</a>
+              <a
+                class="nav-link hero-semantic"
+                href="lab.html"
+                aria-current="page"
+                data-i18n="navDig"
+                >Раскопки</a
+              >
+              <a class="nav-link hero-semantic" href="about.html" data-i18n="navAbout">О проекте</a>
+            </nav>
+            <div class="site-header__lang"></div>
+          </div>
+        </div>
+        <div class="site-header__brand hero-brand">
+          <h1 class="brand-mark hero-semantic" data-i18n="brandTitle">Археология Памяти</h1>
+          <p class="brand-sub hero-semantic" data-i18n="brandSub">Лаборатория безымянных высот</p>
+        </div>
+      </header>
+
+      <hr class="hairline" />
+
+      <nav class="hero-steps" data-i18n-aria="stepsAria" aria-label="Этапы">
+        <div class="nav-step is-active hero-semantic" data-screen="excavation" data-i18n="stepDig">
+          Раскоп
+        </div>
+        <div class="nav-step hero-semantic" data-screen="lab" data-i18n="stepLab">Лаборатория</div>
+        <div class="nav-step hero-semantic" data-screen="archive" data-i18n="stepArchive">Архив</div>
+      </nav>
+
+      <hr class="hairline hairline--steps" />
+
+      <div class="sector-panel" id="sector-panel">
+        <div
+          class="sector-picker"
+          id="sector-picker"
+          role="tablist"
+          data-i18n-aria="sectorPickAria"
+          aria-label="Выбор сектора"
+        ></div>
+        <h2 id="sector-title" class="sector-panel__title">Сектор раскопа</h2>
+        <p id="sector-intro" class="sector-panel__intro"></p>
+        <ul class="sector-panel__meta" data-i18n-aria="sectorMetaAria" aria-label="Параметры сектора">
+          <li id="sector-place"></li>
+          <li id="sector-protocol"></li>
+        </ul>
+      </div>
+
+      <div class="dig-stage" id="screen-excavation">
+        <img
+          class="dig-stage__plate"
+          src="assets/plates/dig-stage.png"
+          alt=""
+          width="1024"
+          height="432"
+        />
+        <canvas id="artifact-canvas" width="600" height="400"></canvas>
+        <canvas id="soil-canvas" width="600" height="400"></canvas>
+        <p id="find-message" class="find-banner" hidden></p>
+        <p class="dig-cue hero-semantic" data-i18n="digCue">Зажмите ЛКМ и водите по картинке</p>
+      </div>
+
+      <div class="hero-dock">
+        <div class="hero-dock__progress">
+          <span class="progress-caption hero-semantic" data-i18n="progress">Расчистка</span>
+          <div class="progress-track hero-semantic">
+            <div id="progress-bar" class="progress-fill" style="width: 0%"></div>
+          </div>
+          <span id="progress-label" class="progress-pct hero-semantic">0%</span>
+        </div>
+        <button id="btn-to-lab" class="btn btn-lab hero-semantic" type="button" disabled data-i18n="toLab">
+          В лабораторию
+        </button>
+      </div>
+    </div>
+
+    <div class="below-hero">
+      <section class="howto-strip" id="howto-strip">
+        <h2 class="panel-title" data-i18n="howtoTitle">Как работать на раскопе</h2>
+        <ol class="howto-list">
+          <li data-i18n="howto1">Выберите сектор выше — Буйничи, Минск или Брест.</li>
+          <li data-i18n="howto2">Зажмите ЛКМ и водите по картинке, пока не откроется медальон.</li>
+          <li data-i18n="howto3">
+            Когда кнопка «В лабораторию» станет активной, передайте находку на экспертизу.
+          </li>
+        </ol>
+      </section>
+
+      <section class="context-strip" id="context-strip" data-i18n-aria="contextAria" aria-label="О раскопках">
+        <div class="context-strip__item">
+          <h3 data-i18n="findTitle">Что найдете</h3>
+          <p data-i18n="findText">
+            Смертный медальон обр. 1941 г. — капсула с бумажным бланком. В проекте текст
+            восстанавливается фильтрами, как при экспертизе документа.
+          </p>
+        </div>
+        <div class="context-strip__item">
+          <h3 data-i18n="fatesTitle">Три судьбы</h3>
+          <p data-i18n="fatesText">
+            Кутепов, Осипова, Гаврилов — реальные биографии. После архива нажмите «Новый поиск»,
+            чтобы открыть следующий сектор.
+          </p>
+        </div>
+        <div class="context-strip__item">
+          <h3 data-i18n="sourcesTitle">Источники</h3>
+          <p>
+            <span data-i18n="sourcesText">Все факты и снимки атрибутированы.</span>
+            <a href="about.html" data-i18n="footerAbout">О проекте и источниках</a> ·
+            <a href="index.html" data-i18n="footerIntro">Введение</a>
+          </p>
+        </div>
+      </section>
+
+      <section id="screen-lab" class="screen" hidden>
+        <article class="panel">
+          <h2 class="panel-title" data-i18n="labPanelTitle">Лаборатория</h2>
+          <p class="panel-lead" data-i18n="labLead">
+            Проявите фамилию, имя и остальные строки бланка. Идите по шагам ниже — или нажмите
+            «Подобрать настройки».
+          </p>
+          <div class="lab-guide">
+            <h3 class="lab-guide__title" data-i18n="labGuideTitle">Как расшифровать</h3>
+            <ol class="lab-guide__list">
+              <li data-i18n="labGuide1">
+                1. Выберите светофильтр «УФ» — фиолетовые чернила проявятся сильнее.
+              </li>
+              <li data-i18n="labGuide2">2. Поднимите контраст примерно до 70–90.</li>
+              <li data-i18n="labGuide3">
+                3. Опустите порог примерно до 100–140, пока буквы не станут чёрными на белом.
+              </li>
+              <li data-i18n="labGuide4">
+                Если сложно — кнопка «Подобрать настройки» выставит рабочие значения сама.
+              </li>
+            </ol>
+          </div>
+          <div class="lab-layout">
+            <div class="microscope">
+              <canvas id="lab-canvas" width="600" height="280"></canvas>
+            </div>
+            <div class="lab-tools">
+              <label>
+                <span class="tool-row"
+                  ><span data-i18n="contrast">Контраст</span>
+                  <strong id="val-contrast">0</strong></span
+                >
+                <input id="slider-contrast" type="range" min="-100" max="150" value="0" />
+              </label>
+              <label>
+                <span class="tool-row"
+                  ><span data-i18n="threshold">Порог</span>
+                  <strong id="val-threshold">255</strong></span
+                >
+                <input id="slider-threshold" type="range" min="0" max="255" value="255" />
+              </label>
+              <label>
+                <span data-i18n="filter">Светофильтр</span>
+                <select id="select-filter">
+                  <option value="original" data-i18n="filterOriginal">Исходный</option>
+                  <option value="uv" data-i18n="filterUv">УФ</option>
+                  <option value="negative" data-i18n="filterNegative">Негатив</option>
+                </select>
+              </label>
+              <p id="lab-hint" class="lab-hint" aria-live="polite"></p>
+              <div class="lab-tool-actions">
+                <button id="btn-assist-lab" class="btn" type="button" data-i18n="labAssist">
+                  Подобрать настройки
+                </button>
+                <button id="btn-reset-lab" class="btn btn-secondary" type="button" data-i18n="reset">
+                  Сброс
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="actions">
+            <button id="btn-to-archive" class="btn" type="button" disabled data-i18n="toFate">
+              К судьбе
+            </button>
+          </div>
+        </article>
+      </section>
+
+      <section id="screen-archive" class="screen" hidden>
+        <article class="panel">
+          <h2 class="panel-title" data-i18n="fateTitle">Судьба</h2>
+          <div id="dossier" class="dossier"></div>
+        </article>
+        <article class="panel">
+          <h2 class="panel-title" data-i18n="photosTitle">Фото</h2>
+          <div id="case-gallery" class="gallery-grid"></div>
+        </article>
+        <article class="panel">
+          <h2 class="panel-title" data-i18n="certTitle">Свидетельство Памяти</h2>
+          <div class="cert-wrap">
+            <canvas id="cert-preview" width="800" height="500"></canvas>
+          </div>
+          <div class="actions">
+            <button id="btn-export" class="btn" type="button" data-i18n="exportPng">Скачать PNG</button>
+            <button id="btn-new-search" class="btn btn-secondary" type="button" data-i18n="newSearch">
+              Новый поиск
+            </button>
+          </div>
+        </article>
+      </section>
+
+      <footer class="footer">
+        <p>
+          © <span id="project-year">2026</span> ·
+          <a href="about.html" data-i18n="footerAbout">О проекте и источниках</a> ·
+          <a href="index.html" data-i18n="footerIntro">Введение</a>
+        </p>
+      </footer>
+    </div>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/excavation.js"></script>
+    <script src="js/lab.js"></script>
+    <script src="js/certificate.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
